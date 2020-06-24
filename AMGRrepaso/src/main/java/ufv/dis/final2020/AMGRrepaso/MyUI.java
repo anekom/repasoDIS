@@ -24,18 +24,33 @@ public class MyUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
+    	
+    	Inventario inventario = new Inventario();
+    	
         final VerticalLayout layout = new VerticalLayout();
         
         final TextField name = new TextField();
-        name.setCaption("Type your name here:");
+        name.setCaption("Type your name product here:");
+        
+        final TextField cathegory = new TextField();
+        name.setCaption("Type the product cathegory here:");
+        
+        final TextField price = new TextField();
+        name.setCaption("Type price here:");
+        
+        final TextField ean = new TextField();
+        name.setCaption("Type the ean13 product here:");
 
-        Button button = new Button("Click Me");
+        Button button = new Button("generate product");
         button.addClickListener(e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));
+            
+        	Producto p = new Producto(name.getValue(), cathegory.getValue(), Integer.parseInt(price.getValue()), ean.getValue());
+        	
+        	inventario.addProducto(p);
+        	
         });
         
-        layout.addComponents(name, button);
+        layout.addComponents(name, cathegory, price, ean, button);
         
         setContent(layout);
     }
