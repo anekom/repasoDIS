@@ -36,8 +36,7 @@ public class tests {
 		
 		assertEquals(0, i.inventariSize());
 		
-		
-		
+				
 	}
 
 }
