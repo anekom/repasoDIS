@@ -33,13 +33,13 @@ public class MyUI extends UI {
         name.setCaption("Type your name product here:");
         
         final TextField cathegory = new TextField();
-        name.setCaption("Type the product cathegory here:");
+        cathegory.setCaption("Type the product cathegory here:");
         
         final TextField price = new TextField();
-        name.setCaption("Type price here:");
+        price.setCaption("Type price here:");
         
         final TextField ean = new TextField();
-        name.setCaption("Type the ean13 product here:");
+        ean.setCaption("Type the ean13 product here:");
 
         Button button = new Button("generate product");
         button.addClickListener(e -> {
@@ -47,6 +47,8 @@ public class MyUI extends UI {
         	Producto p = new Producto(name.getValue(), cathegory.getValue(), Integer.parseInt(price.getValue()), ean.getValue());
         	
         	inventario.addProducto(p);
+        	
+        	GeneradorEAN13.generarEAN(p);
         	
         });
         

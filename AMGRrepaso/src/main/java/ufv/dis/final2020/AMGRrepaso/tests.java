@@ -35,7 +35,6 @@ public class tests {
 		i.removeProducto(p);
 		
 		assertEquals(0, i.inventariSize());
-		
 				
 	}
 
